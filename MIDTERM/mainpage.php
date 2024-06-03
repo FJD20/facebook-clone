@@ -280,6 +280,7 @@ $loggedInUserId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
                         </form>
 
                     </section>
+                    
                     <section class="audience">
                         <header>
                             <div class="arrow-back"><i class="fas fa-arrow-left"></i></div>
