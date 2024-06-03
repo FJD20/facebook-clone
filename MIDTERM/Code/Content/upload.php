@@ -31,7 +31,8 @@ if (isset($_POST["submit"])) {
     $query = "INSERT INTO post_table (user_id, caption, imagePost, content_like) VALUES ('$user_id', '$name', '$filesJson', 0)";
 
     if (mysqli_query($conn, $query)) {
-        header('location:../Home.php');
+        header('location:mainpage.php');
+        
     } else {
         echo "<script>alert('Error inserting data');</script>";
     }

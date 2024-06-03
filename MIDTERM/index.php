@@ -77,6 +77,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./JS/script.js"></script>
     <script src="./JS/main.js"></script>
+ 
 </body>
 
 </html>

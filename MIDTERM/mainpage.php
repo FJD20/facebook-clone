@@ -353,6 +353,7 @@ $loggedInUserId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
     <script src="./JS/main.js"></script>
     <script src="./JS/script.js" data-userid="<?php echo json_encode($loggedInUserId); ?>"></script>
     <script src="./JS/openInputFile.js"></script>
+    <script src="./JS/content.js"></script>
 </body>
 
 </html>
