@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$dbname = "fb-db";
+$dbname = "fb_db";
 $username = "root";
 $password = "";
 

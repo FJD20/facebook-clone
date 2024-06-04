@@ -268,7 +268,8 @@ $loggedInUserId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
                             <div class="options">
                                 <p>Add to Your Post</p>
                                 <ul class="list">
-                                    <li id="fileInputTrigger"><img src="icons/gallery.svg" alt="gallery"></li>
+                                    <!-- <li id="fileInputTrigger"><img src="icons/gallery.svg" alt="gallery"></li> -->
+                                    <input type="file" class="form-control fileImg" name="fileImg[]" accept=".jpg, .jpeg, .png" aria-describedby="inputGroupFileAddon04" aria-label="Upload" required multiple>
                                     <li><img src="icons/tag.svg" alt="gallery"></li>
                                     <li><img src="icons/emoji.svg" alt="gallery"></li>
                                    

@@ -12,7 +12,8 @@ if (!isset($_SESSION['email'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_SESSION['email'];
+    // $email = $_SESSION['email'];
+    $user_id = $_SESSION['id'];
     $caption = $_POST['post_text'];
 
     if (!empty($_FILES['image']['name'])) {

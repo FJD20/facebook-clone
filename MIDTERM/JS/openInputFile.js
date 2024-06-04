@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    
     const imageInput = document.getElementById('imageInput');
     const form = document.querySelector('form');
     const fileInputTrigger = document.getElementById('fileInputTrigger');
