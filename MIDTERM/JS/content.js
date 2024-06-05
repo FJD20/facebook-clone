@@ -8,7 +8,7 @@ $(document).ready(function () {
             type: "POST",
             url: "Code/Content/fetch_content.php",
             data: data,
-            dataType: "json",  // Ensure we parse JSON
+            dataType: "json",
             success: function (response) {
                 console.log(response);
 
@@ -17,7 +17,7 @@ $(document).ready(function () {
                     response.forEach(function (value) {
                         let imagesHTML = '';
 
-                        // Log the imagePost content for debugging
+                     
                         console.log(value.content.imagePost);
 
                         try {
@@ -92,10 +92,9 @@ $(document).ready(function () {
                                 </div>
                             </div>`;
 
-                        $(".users_Followers").after(postHtml); // Append new content
+                        $(".users_Followers").after(postHtml);
                     });
 
-                    // Image navigation
                     $('.left-btn').on('click', function () {
                         navigateImages($(this).siblings('.post-images'), -1);
                     });
