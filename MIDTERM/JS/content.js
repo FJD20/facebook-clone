@@ -13,19 +13,18 @@ $(document).ready(function () {
                 console.log(response);
 
                 if (Array.isArray(response)) {
-                  
 
                     response.forEach(function (value) {
                         let imagesHTML = '';
 
-                     
+                        // Log the imagePost content for debugging
                         console.log(value.content.imagePost);
 
                         try {
                             var images = JSON.parse(value.content.imagePost);
 
                             images.forEach(function (imagePost, index) {
-                                imagesHTML += '<div class="image-item" data-index="' + index + '"><img src="./Code/Content/uploads/' + imagePost + '" alt="Posted Image"></div>';
+                                imagesHTML += '<div class="image-item" data-index="' + index + '"' + (index === 0 ? ' style="display:block;"' : ' style="display:none;"') + '><img src="./Code/Content/uploads/' + imagePost + '" alt="Posted Image"></div>';
                             });
                         } catch (e) {
                             console.error('Invalid JSON format for imagePost:', value.content.imagePost);
@@ -125,7 +124,7 @@ $(document).ready(function () {
     function navigateImages($container, direction) {
         const $images = $container.find('.image-item');
         const totalImages = $images.length;
-        let currentIndex = $images.filter(':visible').data('index');
+        let currentIndex = $images.filter(':visible').data('index') || 0;
 
         $images.hide();
 
