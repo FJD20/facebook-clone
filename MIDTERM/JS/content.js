@@ -66,6 +66,7 @@ $(document).ready(function () {
                                 </div>
                                 <div class="usrsP_activities">
                                     <div class="usrsP_ like">
+                                    <p>${value.content.content_like}</p>
                                         <i class='bx bx-like'></i>
                                         <p>Like</p>
                                     </div>
