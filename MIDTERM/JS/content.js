@@ -140,4 +140,32 @@ $(document).ready(function () {
     }
 
     load_content();
+
+    $(document).on('click','.usrsP_activities',function (e) {
+        e.preventDefault();
+
+        let click = $(this);
+        let poster_id = click.closest('.usrsP_activities').find('.poster_id').val();
+        let content_id = click.val();
+        let like = 0;
+
+        let data = {
+            'poster_id':poster_id,
+            'content_id':content_id,
+            'content_like':like,
+            'like_btn':true
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "url",
+            data: data,
+            dataType: "dataType",
+            success: function (response) {
+                
+            }
+        });
+        
+        
+    });
 });
