@@ -65,7 +65,8 @@ $(document).ready(function () {
                                     <button class="nav-btn right-btn">→</button>
                                 </div>
                                 <div class="usrsP_activities">
-                                    <div class="usrsP_ like">
+                                    <div class="usrsP_ like" value="${value.content.post_id}">
+                                    <input type="hidden" class="poster_id" value="${value.content.user_id}"></input>
                                     <p>${value.content.content_like}</p>
                                         <i class='bx bx-like'></i>
                                         <p>Like</p>
