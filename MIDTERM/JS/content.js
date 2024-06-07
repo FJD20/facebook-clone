@@ -65,7 +65,8 @@ $(document).ready(function () {
                                     <button class="nav-btn right-btn">→</button>
                                 </div>
                                 <div class="usrsP_activities">
-                                    <div class="usrsP_ like" value="${value.content.post_id}">
+                                    <div class="usrsP_like" value="${value.content.post_id}">
+                                      <input type="hidden" class="content_id" value="${value.content.post_id}"></input>
                                     <input type="hidden" class="poster_id" value="${value.content.user_id}"></input>
                                     <p>${value.content.content_like}</p>
                                         <i class='bx bx-like'></i>
@@ -146,23 +147,21 @@ $(document).ready(function () {
 
         let click = $(this);
         let poster_id = click.closest('.usrsP_activities').find('.poster_id').val();
-        let content_id = click.val();
+        let content_id = click.closest('.usrsP_activities').find('.content_id').val();
         let like = 0;
 
         let data = {
             'poster_id':poster_id,
             'content_id':content_id,
-            'content_like':like,
             'like_btn':true
         }
-
+        console.log(content_id);
         $.ajax({
             type: "POST",
-            url: "url",
+            url: "Code/Content/content_like.php",
             data: data,
-            dataType: "dataType",
             success: function (response) {
-                
+                console.log(response);
             }
         });
         
