@@ -242,7 +242,7 @@ $loggedInUserId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
                             </div>
                         </header>
 
-                        <form class="scroll" action="Code/Content/upload.php" method="post" enctype="multipart/form-data">
+                        <form class="scroll" action="Code/Content/content_upload.php" method="post" enctype="multipart/form-data">
                             <div class="content">
                                 <img src="<?php echo $_SESSION['profile_picture']; ?>" alt="logo">
                                 <div class="details">

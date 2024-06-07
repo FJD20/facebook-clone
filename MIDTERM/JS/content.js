@@ -6,7 +6,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "Code/Content/fetch_content.php",
+            url: "Code/Content/content_fetch.php",
             data: data,
             dataType: "json",
             success: function (response) {
