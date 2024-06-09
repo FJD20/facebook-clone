@@ -87,7 +87,10 @@ $loggedInUserId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
             <div class="notification">
             <button type="button" class="icon-button">
                 <span class="material-icons">notifications</span>
-                <span class="icon-button__badge">2</span>
+                <div class="notify">
+                    
+                </div>
+                <!-- <span class="icon-button__badge">2</span> -->
             </button>
             </div>
         </div>

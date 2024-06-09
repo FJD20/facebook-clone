@@ -132,6 +132,6 @@ $(document).ready(function () {
 
   
     load_content(user_id)
-    alert(user_id);
+
 
 });

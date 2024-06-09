@@ -141,9 +141,30 @@ $(document).ready(function () {
         $images.eq(newIndex).show();
     }
 
+    function Notification()
+    {
+        let data = {
+            'notify':true
+        }
+        $.ajax({
+            type: "post",
+            url: "Code/Notification/notify_count.php",
+            data: data,
+            success: function (response) {
+                console.log(response);
+                
+                let notify = `<span class="icon-button__badge">${response}</span>`;
+
+                $(".notify").append(notify);
+            }
+        });
+    }
+    Notification();
+
     load_content();
 
     setInterval(load_content, 3000); 
+    setInterval(Notification, 1000); 
 
     $(document).on('click', '.usrsP_activities', function (e) {
         e.preventDefault();

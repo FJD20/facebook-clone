@@ -22,7 +22,15 @@ if(isset($_POST['like_btn']))
         if($like_conn)
         {
             $update_content_like_query = "UPDATE post_table SET content_like = content_like + 1 WHERE id ='$content_id'";
-            mysqli_query($conn, $update_content_like_query);
+            $result = mysqli_query($conn, $update_content_like_query);
+
+            if($result)
+            {   
+                $name = $_SESSION['firstname'].$_SESSION['lastname'];
+                $notif = "$name Like your Post";
+                $notify = "INSERT INTO notification_tb (user_id,notif) VALUES ('$poster_id', '$notif')";
+                mysqli_query($conn,$notify);
+            }
         }
 
     }
