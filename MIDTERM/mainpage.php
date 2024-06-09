@@ -42,7 +42,9 @@ $loggedInUserId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/mainpage.css">
+    <link rel="stylesheet" href="./CSS/notification.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -81,6 +83,12 @@ $loggedInUserId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
             </div>
             <div class="FBC games">
                 <i class="fa-solid fa-gamepad" id="gamesIcon"></i>
+            </div>
+            <div class="notification">
+            <button type="button" class="icon-button">
+                <span class="material-icons">notifications</span>
+                <span class="icon-button__badge">2</span>
+            </button>
             </div>
         </div>
         <!-- <div class="fb-menu">

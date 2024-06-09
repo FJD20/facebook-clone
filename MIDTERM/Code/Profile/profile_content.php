@@ -5,7 +5,6 @@ include '../Connection.php';
 if (isset($_POST['load_content'])) {
     $user_id = $_POST['user_id'];
 
-    // Prepare the SQL query
     $query = "SELECT 
         post_table.id AS post_id,
         post_table.user_id,
