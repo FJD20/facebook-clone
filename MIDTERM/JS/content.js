@@ -148,14 +148,13 @@ $(document).ready(function () {
         let click = $(this);
         let poster_id = click.closest('.usrsP_activities').find('.poster_id').val();
         let content_id = click.closest('.usrsP_activities').find('.content_id').val();
-        let like = 0;
-
         let data = {
             'poster_id':poster_id,
             'content_id':content_id,
             'like_btn':true
         }
-        console.log(content_id);
+        // console.log(content_id);
+        // console.log(poster_id);
         $.ajax({
             type: "POST",
             url: "Code/Content/content_like.php",
