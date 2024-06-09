@@ -24,7 +24,9 @@ $stmt = $pdo->prepare("INSERT INTO comment_table (user_id, post_id, comment, com
 $result = $stmt->execute([$user_id, $post_id, $comment, $comment_time]);
 
 if ($result) {
-    echo json_encode(['status' => 'success', 'message' => 'Comment added successfully']);
+    // echo json_encode(['status' => 'success', 'message' => 'Comment added successfully']);
+    header('location:mainpage.php');
+    
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Failed to add comment']);
 }

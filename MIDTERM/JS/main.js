@@ -1,47 +1,50 @@
 $(document).ready(function() {
-    function fetchFollowedAccounts() {
-        var userEmail = "<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>";
-
-        $.ajax({
-            type: 'GET',
-            url: 'fetch_following.php',
-            data: { userEmail: userEmail },
-            dataType: 'json',
-            success: function(response) {
-                $('.content-Right .following_container').empty();
-
-                response.forEach(function(account) {
-                    var profileContainer = $('<div>').addClass('following_container');
-                    var profileImg = $('<div>').addClass('fc-img').append($('<img>').attr('src', account.profile_picture).attr('alt', 'Profile picture'));
-                    var profileName = $('<div>').addClass("uname_followed").text(account.firstname + ' ' + account.lastname);
-
-                    var unfollowBtn = $('<div>').addClass('unfollowBtn').html('<i class="fa-solid fa-xmark"></i>');
-
-                    unfollowBtn.click(function() {
-                        var friendId = account.id; 
-                        var accountName = account.firstname + ' ' + account.lastname;
-                        var confirmMsg = "Are you sure you want to unfollow " + accountName + "?";
-                        
-                        var confirmUnfollow = confirm(confirmMsg);
-                        
-                        if (confirmUnfollow) {
-                            console.log("Unfollowing user with ID: " + friendId);
-                            unfollowUser(friendId); 
-                            location.reload(); 
-                        }
+        function fetchFollowedAccounts() {
+            var userEmail = "<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>";
+    
+            $.ajax({
+                type: 'GET',
+                url: 'fetch_following.php',
+                data: { userEmail: userEmail },
+                dataType: 'json',
+                success: function(response) {
+                    $('.content-Right .following_container').empty();
+                    console.log(response);
+                    response.forEach(function(account) {
+                        var profileContainer = $('<div>').addClass('following_container');
+                        var profileImg = $('<a>').attr('href', 'users_profile.php?user_id=' + account.id).addClass('fc-img').append($('<img>').attr('src', account.profile_picture).attr('alt', 'Profile picture'));
+                        var profileName = $('<div>').addClass("uname_followed").text(account.firstname + ' ' + account.lastname);
+    
+                        var unfollowBtn = $('<div>').addClass('unfollowBtn').html('<i class="fa-solid fa-xmark"></i>');
+    
+                        unfollowBtn.click(function() {
+                            var friendId = account.id; 
+                            var accountName = account.firstname + ' ' + account.lastname;
+                            var confirmMsg = "Are you sure you want to unfollow " + accountName + "?";
+                            
+                            var confirmUnfollow = confirm(confirmMsg);
+                            
+                            if (confirmUnfollow) {
+                                console.log("Unfollowing user with ID: " + friendId);
+                                unfollowUser(friendId); 
+                                location.reload(); 
+                            }
+                        });
+    
+                        profileContainer.append(profileImg, profileName, unfollowBtn);
+                        $('.content-Right').append(profileContainer);
                     });
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    alert('An error occurred while fetching followed accounts.');
+                }
+            });
+        }
+    
+        fetchFollowedAccounts(); 
 
-                    profileContainer.append(profileImg, profileName, unfollowBtn);
-                    $('.content-Right').append(profileContainer);
-                });
-            },
-            error: function(xhr, status, error) {
-                console.error(xhr.responseText);
-                alert('An error occurred while fetching followed accounts.');
-            }
-        });
-    }
-    fetchFollowedAccounts();
+    
 
 
 

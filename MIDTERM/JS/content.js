@@ -10,15 +10,15 @@ $(document).ready(function () {
             data: data,
             dataType: "json",
             success: function (response) {
-                console.log(response);
+                // console.log(response);
 
                 if (Array.isArray(response)) {
+                    $(".users_Posts").remove(); 
 
                     response.forEach(function (value) {
                         let imagesHTML = '';
 
-                     
-                        console.log(value.content.imagePost);
+                        // console.log(value.content.imagePost);
 
                         try {
                             var images = JSON.parse(value.content.imagePost);
@@ -66,17 +66,17 @@ $(document).ready(function () {
                                 </div>
                                 <div class="usrsP_activities">
                                     <div class="usrsP_like" value="${value.content.post_id}">
-                                      <input type="hidden" class="content_id" value="${value.content.post_id}"></input>
-                                    <input type="hidden" class="poster_id" value="${value.content.user_id}"></input>
-                                    <p>${value.content.content_like}</p>
+                                        <input type="hidden" class="content_id" value="${value.content.post_id}">
+                                        <input type="hidden" class="poster_id" value="${value.content.user_id}">
+                                        <p>${value.content.content_like}</p>
                                         <i class='bx bx-like'></i>
                                         <p>Like</p>
                                     </div>
-                                    <div class="usrsP_ comment" onclick="popupCommentModal(${value.content.post_id})">
+                                    <div class="usrsP_comment" onclick="popupCommentModal(${value.content.post_id})">
                                         <i class="fa-regular fa-comment"></i>
                                         <p>Comment</p>
                                     </div>
-                                    <div class="usrsP_ share">
+                                    <div class="usrsP_share">
                                         <i class='bx bx-share'></i>
                                         <p>Share</p>
                                     </div>
@@ -123,6 +123,7 @@ $(document).ready(function () {
         });
     }
 
+    // GPT CODE
     function navigateImages($container, direction) {
         const $images = $container.find('.image-item');
         const totalImages = $images.length;
@@ -142,16 +143,18 @@ $(document).ready(function () {
 
     load_content();
 
-    $(document).on('click','.usrsP_activities',function (e) {
+    setInterval(load_content, 3000); 
+
+    $(document).on('click', '.usrsP_activities', function (e) {
         e.preventDefault();
 
         let click = $(this);
         let poster_id = click.closest('.usrsP_activities').find('.poster_id').val();
         let content_id = click.closest('.usrsP_activities').find('.content_id').val();
         let data = {
-            'poster_id':poster_id,
-            'content_id':content_id,
-            'like_btn':true
+            'poster_id': poster_id,
+            'content_id': content_id,
+            'like_btn': true
         }
         // console.log(content_id);
         // console.log(poster_id);
@@ -160,10 +163,8 @@ $(document).ready(function () {
             url: "Code/Content/content_like.php",
             data: data,
             success: function (response) {
-                console.log(response);
+                // console.log(response);
             }
         });
-        
-        
     });
 });
