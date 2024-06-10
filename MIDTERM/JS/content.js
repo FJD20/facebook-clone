@@ -151,11 +151,22 @@ $(document).ready(function () {
             url: "Code/Notification/notify_count.php",
             data: data,
             success: function (response) {
-                console.log(response);
-                
-                let notify = `<span class="icon-button__badge">${response}</span>`;
+                var res = parseInt(response);
 
-                $(".notify").append(notify);
+                if(res === 0 )
+                  
+                    {
+
+                    }
+                    else
+                    {
+                        let notify = `<span class="icon-button__badge">${response}</span>`;
+                        $(".notify").append(notify);
+                    }
+               
+                
+        
+              
             }
         });
     }

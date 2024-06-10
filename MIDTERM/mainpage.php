@@ -85,6 +85,7 @@ $loggedInUserId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
                 <i class="fa-solid fa-gamepad" id="gamesIcon"></i>
             </div>
             <div class="notification">
+                <a href="notifications.php">
             <button type="button" class="icon-button">
                 <span class="material-icons">notifications</span>
                 <div class="notify">
@@ -92,6 +93,7 @@ $loggedInUserId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
                 </div>
                 <!-- <span class="icon-button__badge">2</span> -->
             </button>
+            </a>
             </div>
         </div>
         <!-- <div class="fb-menu">
